@@ -11,19 +11,27 @@
       <tr>
         <th>Picture</th>
         <th>Name</th>
-        <th>City</th>
-        <th>Actions</th>
+        <th>Hometown</th>
+        <th>Discography</th>
       </tr>
 
       <% @rappers.each do |rapper| %>
       <tr>
-        <td><img src="<%= rapper.picture %>" width="200"></td>
-        <td><%= rapper.name %></td>
+        <td><a href="/rappers/<%= rapper.id %>">
+          <img src="<%= rapper.picture %>" width="200"></td></a>
+        <td><a href="/rappers/<%= rapper.id %>">
+          <%= rapper.name %></a>
+        </td>
         <td><%= rapper.city %></td>
         <td>
-          <a href="/rappers/<%= rapper.id %>" class="btn btn-primary">Show</a>
-          <a href="/rappers/<%= rapper.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_rapper/<%= rapper.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <ul class="list-group">
+          <% rapper.songs.each do |song| %>
+            <li class="list-group-item">
+              <a href="/songs/<%= song.id %>">
+                <%= song.title %> (<%= song.year %>)
+              </a>
+            </li>
+          <% end %>
         </td>
       </tr>
       <% end %>

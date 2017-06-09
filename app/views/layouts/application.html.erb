@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>RapBoard</title>
 
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cyborg/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/slate/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <style>
@@ -39,21 +39,36 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+
+
+      <% if current_user == nil %>
+      <ul class="nav navbar-nav">
+
+      <li><a href="/producers">Producers</a></li>
+      <li><a href="/rappers">Rappers</a></li>
+      <li><a href="/songs">Songs</a></li>
+      <li><a href="/users">Users</a></li>
+    </ul>
+
+      <% else %>
+
+      <ul class="nav navbar-nav">
           <li><a href="/friend_requests">Friend Requests</a></li>
           <li><a href="/likes">Likes</a></li>
           <li><a href="/producers">Producers</a></li>
           <li><a href="/rappers">Rappers</a></li>
           <li><a href="/songs">Songs</a></li>
+          <li><a href="/users">Users</a></li>
         </ul>
+    <% end %>
 
-        <ul class="nav navbar-nav navbar-right">
 
-          <!-- If NOT signed in -->
-      <% if current_user == nil %>
-
+        <!-- If NOT signed in -->
+    <% if current_user == nil %>
+    <ul class="nav navbar-nav navbar-right">
           <li><a href="/users/sign_up">Sign Up</a></li>
           <li><a href="/users/sign_in">Sign In</a></li>
+    </ul>
 
 <!-- If signed in -->
     <% else %>
@@ -62,10 +77,10 @@
           <li><a href="/my_likes">My Likes</a></li>
           <li><a href="/users/edit"><%= current_user.try(:username) %></a></li>
           <li><a href="/users/sign_out" data-method="delete" rel="nofollow"> Sign Out </a></li>
+          </ul>
     <% end %>
 
 
-        </ul>
       </div><!-- /.navbar-collapse -->
     </div>
   </nav>

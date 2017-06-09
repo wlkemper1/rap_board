@@ -12,7 +12,7 @@
         <th>Picture</th>
         <th>Name</th>
         <th>City</th>
-        <th>Actions</th>
+        <th>Discography</th>
       </tr>
 
       <% @producers.each do |producer| %>
@@ -21,9 +21,14 @@
         <td><%= producer.name %></td>
         <td><%= producer.city %></td>
         <td>
-          <a href="/producers/<%= producer.id %>" class="btn btn-primary">Show</a>
-          <a href="/producers/<%= producer.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_producer/<%= producer.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <ul class="list-group">
+          <% producer.songs.each do |song| %>
+            <li class="list-group-item">
+              <a href="/songs/<%= song.id %>">
+                <%= song.title %> (<%= song.year %>)
+              </a>
+            </li>
+          <% end %>
         </td>
       </tr>
       <% end %>
