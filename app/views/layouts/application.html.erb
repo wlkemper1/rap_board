@@ -44,10 +44,10 @@
       <% if current_user == nil %>
       <ul class="nav navbar-nav">
 
-      <li><a href="/producers">Producers</a></li>
-      <li><a href="/rappers">Rappers</a></li>
-      <li><a href="/songs">Songs</a></li>
-      <li><a href="/users">Users</a></li>
+      <li><a href="/songs"><i class="fa fa-music" aria-hidden="true"></i> Songs</a></li>
+      <li><a href="/rappers"><i class="fa fa-map-pin" aria-hidden="true"></i> Rappers</a></li>
+      <li><a href="/producers"><i class="fa fa-laptop" aria-hidden="true"></i> Producers</a></li>
+      <li><a href="/users"><i class="fa fa-users" aria-hidden="true"></i> Users</a></li>
     </ul>
 
       <% else %>
@@ -55,10 +55,10 @@
       <ul class="nav navbar-nav">
           <li><a href="/friend_requests">Friend Requests</a></li>
           <li><a href="/likes">Likes</a></li>
-          <li><a href="/producers">Producers</a></li>
-          <li><a href="/rappers">Rappers</a></li>
-          <li><a href="/songs">Songs</a></li>
-          <li><a href="/users">Users</a></li>
+          <li><a href="/songs"><i class="fa fa-music" aria-hidden="true"></i> Songs</a></li>
+          <li><a href="/rappers"><i class="fa fa-map-pin" aria-hidden="true"></i> Rappers</a></li>
+          <li><a href="/producers"><i class="fa fa-laptop" aria-hidden="true"></i> Producers</a></li>
+          <li><a href="/users"><i class="fa fa-users" aria-hidden="true"></i> Users</a></li>
         </ul>
     <% end %>
 
@@ -66,8 +66,8 @@
         <!-- If NOT signed in -->
     <% if current_user == nil %>
     <ul class="nav navbar-nav navbar-right">
-          <li><a href="/users/sign_up">Sign Up</a></li>
-          <li><a href="/users/sign_in">Sign In</a></li>
+          <li><a href="/users/sign_up"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
+          <li><a href="/users/sign_in"><i class="fa fa-check-square-o" aria-hidden="true"></i> Sign In</a></li>
     </ul>
 
 <!-- If signed in -->

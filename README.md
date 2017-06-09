@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Trying this out, didn't realize I push this part from my code.
 
-Things you may want to cover:
 
-* Ruby version
+Check out my Kanban flow:
+https://github.com/wlkemper1/rap_board/projects/1
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I'll put a video recording here:

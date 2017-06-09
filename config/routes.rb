@@ -87,6 +87,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "songs#index"
 
+  get "/my_likes", :controller => "songs", :action => "my_likes"
+  get "/my_timeline", :controller => "songs", :action => "my_likes"
+
   get "/users", :controller => "users", :action => "index"
   get "/users/:id", :controller => "users", :action => "show"
 

@@ -20,12 +20,18 @@
 
       <!-- Label and input for user_id -->
       <div class="form-group">
+    <!-- if not signed in -->
+        <% if current_user == nil %>
         <label for="user_id" class="control-label">
           User
         </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @like.user_id %>">
-      </div>
+      <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @like.user_id %>">
+    </div>
+    <!-- if signed in -->
+    <% else %>
+      <input type="hidden" id="user_id" name="user_id" value="<%= current_user.try(:id) %>"></div>
+    <% end %>
 
       <!-- Label and input for song_id -->
       <div class="form-group">
@@ -33,8 +39,12 @@
           Song
         </label>
 
-        <input type="text" id="song_id" name="song_id" placeholder="Song" class="form-control" value="<%= @like.song_id %>">
-      </div>
+        <%= select_tag(:song_id,
+        options_from_collection_for_select(Song.all, :id, :title,
+        @like.song_id), :class => "form-control") %>
+
+        <br>
+
 
       <button class="btn btn-success">
         Create Like

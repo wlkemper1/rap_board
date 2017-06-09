@@ -1,7 +1,12 @@
 class SongsController < ApplicationController
+
+  def my_likes
+    @songs = current_user.songs
+  end
+
+
   def index
     @songs = Song.all
-
     render("songs/index.html.erb")
   end
 
