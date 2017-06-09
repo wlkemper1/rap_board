@@ -1,0 +1,81 @@
+<!-- Validation failure messages -->
+<% if @song.errors.any? %>
+  <% @song.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit: <%= @song.title %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_song/<%= @song.title %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for rapper_id -->
+      <div class="form-group">
+        <label for="rapper_id" class="control-label">
+          Rapper
+        </label>
+
+        <%= select_tag(:rapper_id,
+        options_from_collection_for_select(Rapper.all, :id, :name,
+        @song.rapper_id), :class => "form-control") %>
+
+        <br>
+        <p><a href="/rappers/new">Or add a new rapper</a></p>
+
+      <!-- Label and input for producer_id -->
+      <div class="form-group">
+        <label for="producer_id" class="control-label">
+          Producer
+        </label>
+
+        <%= select_tag(:producer_id,
+        options_from_collection_for_select(Producer.all, :id, :name,
+        @song.producer_id), :class => "form-control") %>
+
+        <br>
+        <p><a href="/producers/new">Or add a new producer</a></p>
+
+      <!-- Label and input for audio_link -->
+      <div class="form-group">
+        <label for="audio_link" class="control-label">
+          Audio link
+        </label>
+
+        <input type="text" id="audio_link" name="audio_link" placeholder="Audio link" class="form-control" value="<%= @song.audio_link %>">
+      </div>
+
+      <!-- Label and input for year -->
+      <div class="form-group">
+        <label for="year" class="control-label">
+          Year
+        </label>
+
+        <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="<%= @song.year %>">
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @song.title %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Song
+      </button>
+      or
+      <a href="/songs/<%= @song.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

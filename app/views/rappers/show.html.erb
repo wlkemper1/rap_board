@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3><%= @rapper.name %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Picture</dt>
+      <dd><img src="<%= @rapper.picture %>" width="400"</dd>
+
+      <dt>Name</dt>
+      <dd><%= @rapper.name %></dd>
+
+      <dt>City</dt>
+      <dd><%= @rapper.city %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/rappers" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/rappers/<%= @rapper.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_rapper/<%= @rapper.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

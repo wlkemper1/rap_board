@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h3><%= @song.title %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Rapper</dt>
+      <dd>
+        <a href="/rappers/<%= @song.rapper_id %>">
+        <%= @song.rapper.name %></a></dd>
+
+      <dt>Producer</dt>
+      <dd>
+        <a href="/producers/<%= @song.producer_id %>">
+        <%= @song.producer.name %></a></dd>
+
+      <dt>Video link</dt>
+      <dd><iframe width="560" height="315" src="<%= @song.audio_link.gsub("watch?v=","embed/") %>" frameborder="0" allowfullscreen></iframe></dd>
+
+      <dt>Year</dt>
+      <dd><%= @song.year %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/songs" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/songs/<%= @song.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_song/<%= @song.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
