@@ -33,5 +33,6 @@ class User < ApplicationRecord
 # indirect assocations
       has_many :leaders, :through => :sent_friend_requests, :source => :recipient
       has_many :followers, :through => :received_friend_requests, :source => :sender
+      has_many :songs, :through => :likes, :source => :song
 
 end

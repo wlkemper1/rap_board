@@ -12,7 +12,7 @@
 
 class Rapper < ApplicationRecord
 
-  has_many :songs_as_main, :class_name => "Song", :dependent => :destroy
+  has_many :songs, :class_name => "Song", :dependent => :destroy
 
 
 end

@@ -14,7 +14,21 @@
       <dt>City</dt>
       <dd><%= @rapper.city %></dd>
 
-    </dl>
+      <dt>Number of songs</dt>
+      <dd><%= @rapper.songs.count %></dd>
+
+      <dt>Discography</dt>
+      <dd>
+        <ul class="list-group">
+        <% @rapper.songs.each do |song| %>
+          <li class="list-group-item">
+            <a href="/songs/<%= song.id %>">
+              <%= song.title %> (<%= song.year %>)
+            </a>
+          </li>
+        <% end %>
+      </dl>
+
 
     <div class="btn-group btn-group-justified">
       <a href="/rappers" class="btn btn-primary">

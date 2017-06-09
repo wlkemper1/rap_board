@@ -20,4 +20,6 @@ class Song < ApplicationRecord
   belongs_to :rapper, :class_name => "Rapper", :foreign_key => "rapper_id"
   belongs_to :producer
 
+  has_many :users, :through => :likes, :source => :user
+
 end

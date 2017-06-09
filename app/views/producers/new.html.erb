@@ -18,14 +18,6 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for picture -->
-      <div class="form-group">
-        <label for="picture" class="control-label">
-          Picture
-        </label>
-
-        <input type="text" id="picture" name="picture" placeholder="Picture" class="form-control" value="<%= @producer.picture %>">
-      </div>
 
       <!-- Label and input for name -->
       <div class="form-group">
@@ -34,6 +26,15 @@
         </label>
 
         <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @producer.name %>">
+      </div>
+
+      <!-- Label and input for picture -->
+      <div class="form-group">
+        <label for="picture" class="control-label">
+          Picture
+        </label>
+
+        <input type="text" id="picture" name="picture" placeholder="Picture" class="form-control" value="<%= @producer.picture %>">
       </div>
 
       <!-- Label and input for city -->
